@@ -1,3 +1,41 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import "tailwindcss";
+
+@theme {
+    --color-primary: #137fec;
+    --color-background-light: #f6f7f8;
+    --color-background-dark: #101922;
+
+    --font-display: "Manrope", sans-serif;
+
+    --radius-lg: 2rem;
+    --radius-xl: 3rem;
+}
+
+/* Custom utility for the abstract shape */
+.abstract-shape {
+    background: linear-gradient(135deg, #137fec 0%, #4ea5ff 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 0% 100%);
+}
+
+.glass {
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass {
+    background: rgba(16, 25, 34, 0.7);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.no-scrollbar::-webkit-scrollbar {
+    display: none;
+}
+
+.no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
