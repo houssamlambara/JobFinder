@@ -1,0 +1,107 @@
+<div
+    class="min-h-screen w-full flex flex-col md:flex-row bg-white dark:bg-[#101922] font-display text-[#111418] dark:text-white antialiased">
+
+    <!-- Visual Section (Top on mobile, Left on Desktop) -->
+    <div
+        class="relative h-64 md:h-auto md:w-1/2 lg:w-[45%] abstract-shape flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <!-- Abstract Geometric Overlay Pattern -->
+            <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"></path>
+                    </pattern>
+                </defs>
+                <rect fill="url(#grid)" height="100%" width="100%"></rect>
+            </svg>
+        </div>
+        <!-- Logo / Brand Icon -->
+        <div class="z-10 bg-white/20 backdrop-blur-md p-6 rounded-full border border-white/30 shadow-2xl">
+            <span class="material-symbols-outlined text-white text-6xl md:text-8xl">person_add</span>
+        </div>
+        <!-- Decorative Text for Desktop -->
+        <div class="absolute top-12 left-0 right-0 text-center text-white hidden md:block px-8 z-20">
+            <h2 class="text-3xl font-bold mb-2">Join JobFinder</h2>
+        </div>
+        <!-- Back Button (Mobile only overlay) -->
+        <button
+            class="absolute top-4 left-4 md:hidden text-white flex size-10 shrink-0 items-center justify-center rounded-full bg-white/20 backdrop-blur-md hover:bg-white/30 transition-colors z-20">
+            <span class="material-symbols-outlined">arrow_back_ios_new</span>
+        </button>
+    </div>
+
+    <!-- Register Form Section (Bottom on mobile, Right on Desktop) -->
+    <div class="flex-1 flex items-center justify-center p-6 sm:p-12 md:p-16 bg-white dark:bg-[#101922]">
+        <div class="w-full max-w-md space-y-6">
+
+            <!-- Header (Desktop) -->
+            <div class="text-center md:text-left mb-8">
+                <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">Create Account</h1>
+                <p class="text-gray-500 dark:text-gray-400 font-medium text-base">Join thousands of job seekers today.
+                </p>
+            </div>
+
+            <!-- Form Fields -->
+            <div class="flex flex-col gap-5">
+                <label class="flex flex-col gap-2">
+                    <span class="text-[#111418] dark:text-white text-sm font-semibold ml-1">Full Name</span>
+                    <div class="relative group">
+                        <span
+                            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary">person</span>
+                        <input
+                            class="form-input flex w-full rounded-full text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-900 focus:border-primary h-14 pl-12 pr-4 text-base font-normal transition-all"
+                            placeholder="John Doe" type="text" />
+                    </div>
+                </label>
+
+                <label class="flex flex-col gap-2">
+                    <span class="text-[#111418] dark:text-white text-sm font-semibold ml-1">Email Address</span>
+                    <div class="relative group">
+                        <span
+                            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary">mail</span>
+                        <input
+                            class="form-input flex w-full rounded-full text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-900 focus:border-primary h-14 pl-12 pr-4 text-base font-normal transition-all"
+                            placeholder="name@example.com" type="email" />
+                    </div>
+                </label>
+
+                <label class="flex flex-col gap-2">
+                    <span class="text-[#111418] dark:text-white text-sm font-semibold ml-1">Password</span>
+                    <div class="relative group">
+                        <span
+                            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-primary">lock</span>
+                        <input
+                            class="form-input flex w-full rounded-full text-[#111418] dark:text-white focus:outline-0 focus:ring-2 focus:ring-primary/20 border border-[#dbe0e6] dark:border-gray-700 bg-white dark:bg-gray-900 focus:border-primary h-14 pl-12 pr-12 text-base font-normal transition-all"
+                            placeholder="••••••••" type="password" />
+                        <span
+                            class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 cursor-pointer hover:text-primary transition-colors">visibility</span>
+                    </div>
+                </label>
+            </div>
+
+            <!-- Submit Button -->
+            <div class="pt-2">
+                <button
+                    class="w-full h-14 bg-gradient-to-r from-primary to-[#4299f1] text-white font-bold text-lg rounded-full shadow-lg shadow-primary/30 active:scale-[0.98] transition-all flex items-center justify-center gap-2 cursor-pointer hover:opacity-90">
+                    Sign Up
+                    <span class="material-symbols-outlined">arrow_forward</span>
+                </button>
+                <p class="text-xs text-center text-gray-400 mt-4 px-4 leading-relaxed">
+                    By signing up, you agree to our <span
+                        class="text-primary font-semibold cursor-pointer hover:underline">Terms of Service</span> and
+                    <span class="text-primary font-semibold cursor-pointer hover:underline">Privacy Policy</span>.
+                </p>
+            </div>
+
+            <!-- Divider -->
+
+
+            <!-- Login Link -->
+            <div class="pt-4 text-center">
+                <p class="text-gray-500 dark:text-gray-400 text-sm font-medium">Already have an account?
+                    <a class="text-primary font-bold hover:underline" href="#">Log In</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

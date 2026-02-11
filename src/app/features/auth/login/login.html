@@ -1,0 +1,90 @@
+<div
+    class="min-h-screen w-full flex flex-col md:flex-row bg-white dark:bg-[#101922] font-display text-[#111418] dark:text-white antialiased">
+
+    <!-- Visual Section (Top on mobile, Left on Desktop) -->
+    <div
+        class="relative h-64 md:h-auto md:w-1/2 lg:w-[45%] abstract-shape flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 opacity-20">
+            <!-- Abstract Geometric Overlay Pattern -->
+            <svg height="100%" width="100%" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <pattern height="40" id="grid" patternunits="userSpaceOnUse" width="40">
+                        <path d="M 40 0 L 0 0 0 40" fill="none" stroke="white" stroke-width="1"></path>
+                    </pattern>
+                </defs>
+                <rect fill="url(#grid)" height="100%" width="100%"></rect>
+            </svg>
+        </div>
+        <!-- Logo / Brand Icon -->
+        <div class="z-10 bg-white/20 backdrop-blur-md p-6 rounded-full border border-white/30 shadow-2xl">
+            <span class="material-symbols-outlined text-white text-6xl md:text-8xl">work</span>
+        </div>
+        <!-- Decorative Text for Desktop -->
+        <div class="absolute top-12 left-0 right-0 text-center text-white hidden md:block px-8 z-20">
+            <h2 class="text-3xl font-bold mb-2">JobFinder</h2>
+            <p class="text-white/80 text-sm">Discover your next dream career today.</p>
+        </div>
+    </div>
+
+    <!-- Login Form Section (Bottom on mobile, Right on Desktop) -->
+    <div class="flex-1 flex items-center justify-center p-6 sm:p-12 md:p-16 bg-white dark:bg-[#101922]">
+        <div class="w-full max-w-md space-y-8">
+            <div class="text-center md:text-left">
+                <h1 class="text-3xl md:text-4xl font-extrabold tracking-tight mb-2">Welcome Back</h1>
+                <p class="text-gray-500 dark:text-gray-400 font-medium text-base">Log in to find your dream job.</p>
+            </div>
+
+            <!-- Login Form -->
+            <form class="space-y-6" onsubmit="return false;">
+                <!-- Email Input -->
+                <div class="flex flex-col gap-2">
+                    <label class="text-sm font-semibold px-1">Email Address</label>
+                    <div class="relative">
+                        <span
+                            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">mail</span>
+                        <input
+                            class="w-full pl-12 pr-4 py-4 bg-gray-50 dark:bg-gray-800 border-none ring-1 ring-gray-200 dark:ring-gray-700 focus:ring-2 focus:ring-primary rounded-full transition-all duration-200 outline-none"
+                            placeholder="name@example.com" type="email" />
+                    </div>
+                </div>
+
+                <!-- Password Input -->
+                <div class="flex flex-col gap-2">
+                    <div class="flex justify-between items-center px-1">
+                        <label class="text-sm font-semibold">Password</label>
+                        <a class="text-xs font-bold text-primary hover:opacity-80 transition-opacity" href="#">Forgot
+                            Password?</a>
+                    </div>
+                    <div class="relative">
+                        <span
+                            class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-gray-400">lock</span>
+                        <input
+                            class="w-full pl-12 pr-12 py-4 bg-gray-50 dark:bg-gray-800 border-none ring-1 ring-gray-200 dark:ring-gray-700 focus:ring-2 focus:ring-primary rounded-full transition-all duration-200 outline-none"
+                            placeholder="Enter your password" type="password" />
+                        <button
+                            class="material-symbols-outlined absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors cursor-pointer"
+                            type="button">
+                            visibility
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Login Button -->
+                <button
+                    class="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 rounded-full shadow-lg shadow-primary/30 mt-4 transition-all active:scale-[0.98] cursor-pointer">
+                    Login
+                </button>
+            </form>
+
+
+
+            <!-- Footer -->
+            <div class="pt-4 text-center">
+                <p class="text-gray-500 dark:text-gray-400 text-sm font-medium">
+                    Don't have an account?
+                    <a class="text-primary font-bold hover:underline" href="#">Sign Up</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
