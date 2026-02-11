@@ -1,0 +1,139 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "Lambara Houssam",
+      "email": "lambarahoussam@gmail.com",
+      "password": "123"
+    },
+    {
+      "name": "wissam douskhary",
+      "email": "wissam@gmail.com",
+      "password": "123",
+      "id": 2
+    },
+    {
+      "name": "ayoub ayoub",
+      "email": "ayoub@gmail.com",
+      "password": "123",
+      "id": 3
+    }
+  ],
+  "Favorites": [
+    {
+      "id": 1,
+      "userId": 1,
+      "offerId": 1,
+      "title": "My first post",
+      "company": "Entreprise A",
+      "location": "Casablanca"
+    },
+    {
+      "userId": 1,
+      "offerId": 1,
+      "title": "First post",
+      "company": "Oracle",
+      "location": "Casablanca",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "offerId": 3,
+      "title": "My first post",
+      "company": "Entreprise A",
+      "location": "Casablanca",
+      "id": 6
+    }
+  ],
+  "suivis": [
+    {
+      "id": 1,
+      "userId": 1,
+      "offerId": "101",
+      "apiSource": "adzuna",
+      "title": "Développeur Angular",
+      "company": "Entreprise A",
+      "location": "Casablanca",
+      "url": "https://...",
+      "status": "en_attente",
+      "notes": "Candidature envoyée le 10/02/2025. Relancer dans 2semaines.",
+      "dateAdded": "2026-02-10T10:30:00Z"
+    },
+    {
+      "id": 2,
+      "userId": 1,
+      "offerId": "102",
+      "apiSource": "adzuna",
+      "title": "Développeur Angular",
+      "company": "Entreprise A",
+      "location": "Casablanca",
+      "url": "https://...",
+      "status": "en_attente",
+      "notes": "Candidature envoyée le 10/02/2025. Relancer dans 2semaines.",
+      "dateAdded": "2026-02-10T10:30:00Z"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 1,
+      "title": "Concepteur Produit Senior",
+      "company": "TechFlow Studio",
+      "location": "Casablanca, Maroc",
+      "type": "CDI",
+      "salary": "120k - 150k DH",
+      "posted": "Il y a 2h",
+      "logo": "https://lh3.googleusercontent.com/aida-public/AB6AXuDyPCi9JrWvHhVqT-irsK85nXAohAxgiXw3TisjJTDMW4WSFNITj4Yfi7wyWZ4GPEIAktWGkc9Ss5jMFX3hVjZLzUlFFvPU1PXUlmQL4oTH0E2MNNtcd6nBm-R6rAAW4HHVe0duKeiBchC_Hr9f4Y8nVS4d3hPyfeo5F_wA_xgyObkOM48CVrZq21e1e7AQuRAKfD4ibMZP1nOSqelNycgw4irobPj_fAWnwyjZQewZ3JM5FStqvD8g2h1KxupjVS0Ii3orF9VeuNg",
+      "description": "Nous recherchons un Concepteur Produit expérimenté pour diriger notre équipe de conception...",
+      "requirements": [
+        "5+ ans d'exp",
+        "Figma",
+        "Leadership"
+      ],
+      "benefits": [
+        "Télétravail",
+        "Assurance Santé",
+        "CIMR"
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Ingénieur Staff (iOS)",
+      "company": "Lumina Labs",
+      "location": "Rabat, Maroc",
+      "type": "CDI",
+      "salary": "180k - 220k DH",
+      "posted": "Il y a 5h",
+      "logo": "https://lh3.googleusercontent.com/aida-public/AB6AXuDZKpVJcHCvRC9g7B-jaZ3Q6K7brOdZrIulT6CDD6ldXyIi0mTWHuXRNAVfOIlQiwqVRPylENJHpCV-LC_4LEJbu07wb-mCOE7XSVpURv0qVzyD5QJ7bU-DNY5YGmk2oJUl5zg0xYKKNsbwJdYbYW2cKrDz3tWAYbSwhUfZQ4e6crWZa7BKUH-UcFq71dG6un2ETu80pbo1qB28oy5jByaau42E0NuEv5IiVr8soFoLO7WPq1UbFcuCO9c7BR3CMRsBvH_QS-lL1LQ",
+      "description": "Rejoignez notre équipe d'ingénierie mobile pour construire la prochaine génération de notre application iOS...",
+      "requirements": [
+        "Swift",
+        "SwiftUI",
+        "Architecture"
+      ],
+      "benefits": [
+        "Equity",
+        "Horaires flexibles"
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Responsable Marketing",
+      "company": "Global Reach Corp",
+      "location": "Tanger, Maroc (Hybride)",
+      "type": "CDD",
+      "salary": "90k - 115k DH",
+      "posted": "Il y a 1j",
+      "logo": "https://lh3.googleusercontent.com/aida-public/AB6AXuC4BjR8fEOtjdvgnPtmp4RHSFh_dXlMy_m0tYsF97-xkJ61nRrepNAwuEshETEDs0ItR4g9VzE20N3x0b95YbvmyZhvBHjzeP6ZigaME07O02c574HDHFHDUMAOsc8gotiW2j_uDXbNHlVoFaInVfPL4pRQSc6As20Wa3kLutbLaInzeD3b3MOhOJmMWa6-Jrbcd4tBDoafgWl05A07CfouAUZqrXCsC-bWttiSfywdTCwOE_yTnRUEE6QqRlmvmNR0AKTluZH3HGo",
+      "description": "Nous recherchons un Responsable Marketing créatif pour superviser les campagnes mondiales...",
+      "requirements": [
+        "Axé sur les données",
+        "Réseaux Sociaux",
+        "SEO"
+      ],
+      "benefits": [
+        "Voyages",
+        "Prime"
+      ]
+    }
+  ]
+}
