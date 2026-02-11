@@ -1,0 +1,261 @@
+<div
+    class="relative min-h-screen w-full bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white antialiased">
+
+    <!-- Desktop Navbar (Hidden on Mobile) -->
+    <nav
+        class="hidden md:flex sticky top-0 z-50 bg-white/80 dark:bg-[#101922]/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="w-full max-w-7xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
+            <!-- Logo -->
+            <div class="flex items-center gap-3">
+                <div class="size-10 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
+                    <span class="material-symbols-outlined text-white text-2xl">work</span>
+                </div>
+                <h1 class="text-xl font-bold tracking-tight">JobFinder</h1>
+            </div>
+
+            <!-- Desktop Navigation Links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a routerLink="/home" class="text-gray-500 hover:text-primary font-medium transition-colors">Find
+                    Jobs</a>
+                <a class="text-gray-500 hover:text-primary font-medium transition-colors cursor-pointer">Companies</a>
+                <a class="text-gray-500 hover:text-primary font-medium transition-colors cursor-pointer">Salaries</a>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex items-center gap-4">
+                <button
+                    class="px-5 h-10 rounded-full border border-gray-200 dark:border-gray-700 font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                    Post a Job
+                </button>
+                <a routerLink="/auth/login"
+                    class="px-6 h-10 flex items-center justify-center rounded-full bg-primary text-white font-bold text-sm shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all hover:scale-105 active:scale-95">
+                    Sign In
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Top App Bar (Hidden on Desktop) -->
+    <header
+        class="md:hidden sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
+        <div class="flex items-center justify-between p-4">
+            <button class="flex size-10 items-center justify-center rounded-full bg-gray-50 dark:bg-gray-800">
+                <span class="material-symbols-outlined text-[#111418] dark:text-white">arrow_back_ios_new</span>
+            </button>
+            <h1 class="text-lg font-bold tracking-tight">Applications</h1>
+            <button class="flex size-10 items-center justify-center rounded-full bg-gray-50 dark:bg-gray-800">
+                <span class="material-symbols-outlined text-[#111418] dark:text-white">more_horiz</span>
+            </button>
+        </div>
+        <!-- Status Filter Chips (Mobile) -->
+        <div class="flex gap-2 p-4 overflow-x-auto no-scrollbar">
+            <div
+                class="flex h-9 shrink-0 items-center justify-center rounded-full bg-primary px-5 text-white shadow-sm">
+                <p class="text-sm font-semibold">All</p>
+            </div>
+            <div
+                class="flex h-9 shrink-0 items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 px-5 text-[#111418] dark:text-white">
+                <p class="text-sm font-medium">Pending</p>
+            </div>
+            <div
+                class="flex h-9 shrink-0 items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 px-5 text-[#111418] dark:text-white">
+                <p class="text-sm font-medium">Interview</p>
+            </div>
+            <div
+                class="flex h-9 shrink-0 items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 px-5 text-[#111418] dark:text-white">
+                <p class="text-sm font-medium">Rejected</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 w-full max-w-7xl mx-auto pb-24 md:py-12 px-0 md:px-8">
+
+        <!-- Desktop Page Header -->
+        <div class="hidden md:flex items-center justify-between mb-8">
+            <div>
+                <h2 class="text-3xl font-bold mb-2">My Applications</h2>
+                <p class="text-gray-500">Track the status of your job applications.</p>
+            </div>
+            <!-- Desktop Filters -->
+            <div class="flex gap-2">
+                <div
+                    class="flex h-10 cursor-pointer shrink-0 items-center justify-center rounded-full bg-primary px-6 text-white shadow-sm transition-transform hover:scale-105">
+                    <p class="text-sm font-bold">All</p>
+                </div>
+                <div
+                    class="flex h-10 cursor-pointer shrink-0 items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-6 text-[#111418] dark:text-white hover:border-primary transition-all">
+                    <p class="text-sm font-semibold">Pending</p>
+                </div>
+                <div
+                    class="flex h-10 cursor-pointer shrink-0 items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-6 text-[#111418] dark:text-white hover:border-primary transition-all">
+                    <p class="text-sm font-semibold">Interview</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Applications List Container -->
+        <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 p-4 md:p-0">
+
+            <!-- Application Card 1 (In Review) -->
+            <div
+                class="group relative flex flex-col gap-4 rounded-xl bg-white dark:bg-gray-900 p-5 shadow-sm border border-gray-50 dark:border-gray-800 transition-all hover:shadow-lg hover:-translate-y-1">
+                <div class="flex items-start justify-between">
+                    <div class="flex gap-4">
+                        <div
+                            class="size-14 rounded-2xl bg-[#f0f2f4] dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                            <div class="w-full h-full bg-center bg-cover"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCfi9sSXBCmR4ZNxQ9OSbMKWUSBQqYQDGa1_laubWNV361IW__5qNLRKAZmIG6dXLZwjDJW4nnEClferrsqt8qfi86CU5FPCxqc9t5vEeEEVhiYlB10Fgj9ZV9IBFJhkpFxbFqyMh-0SA4IE8FEhm4zk-aGjSYyAC7Tm-bxDTSykVk1rf-zciWc9_jpqRxaMSsVeO6BZQfgqRMRbfApr2uSCufo_L9QzExHnGg-KgcmgTnu_fBM03RslQWsphI9W_uyhOifx7S4QAs')">
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-bold leading-tight">Senior Product Designer</h3>
+                            <p class="text-[#617589] dark:text-gray-400 text-sm font-medium">TechFlow • New York</p>
+                            <div class="mt-2 flex items-center gap-2">
+                                <span class="size-2 rounded-full bg-yellow-500 animate-pulse"></span>
+                                <span
+                                    class="text-xs font-bold text-yellow-600 dark:text-yellow-400 uppercase tracking-wide">In
+                                    Review</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="border-t border-gray-100 dark:border-gray-800 pt-3 mt-1">
+                    <p class="text-xs text-gray-400 mb-3">Applied on Feb 10, 2026</p>
+                    <button
+                        class="w-full h-10 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        View Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Application Card 2 (Interview) -->
+            <div
+                class="group relative flex flex-col gap-4 rounded-xl bg-white dark:bg-gray-900 p-5 shadow-sm border border-gray-50 dark:border-gray-800 transition-all hover:shadow-lg hover:-translate-y-1">
+                <div class="flex items-start justify-between">
+                    <div class="flex gap-4">
+                        <div
+                            class="size-14 rounded-2xl bg-[#f0f2f4] dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                            <div class="w-full h-full bg-center bg-cover"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzrD5foJoTDlkYBE5xla8rKKINUS0vDrA9UfxwGNc_AEDaNrMCmDdO3LA0GXts1QSPRGZodFwc4F4lZrIgiYGx-BrsUdndsdfS-hsvu8GIE1RPxC3-bs6w6hGKJE9XfUp5YPSHflcLib_VlLXstkTBqTi4A7Lxo4_nLE0G37wq4sLvsyXEZBS6P13mBZr_1v--bPqy44FcVRVw5QOeBKYWqJq2uob4DwxkNq1CrVth8JSO7FaYqc8oI78k47Tcs_A2eReNJlULX_Y')">
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-bold leading-tight">Lead UX Researcher</h3>
+                            <p class="text-[#617589] dark:text-gray-400 text-sm font-medium">Creative Solutions • Remote
+                            </p>
+                            <div class="mt-2 flex items-center gap-2">
+                                <span class="size-2 rounded-full bg-green-500"></span>
+                                <span
+                                    class="text-xs font-bold text-green-600 dark:text-green-400 uppercase tracking-wide">Interview</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-100 dark:border-gray-800 pt-3 mt-1">
+                    <p class="text-xs text-gray-400 mb-3">Applied on Feb 08, 2026</p>
+                    <div class="flex gap-2">
+                        <button
+                            class="flex-1 h-10 rounded-lg bg-primary text-white font-bold text-sm shadow-sm hover:bg-primary/90 transition-colors">
+                            Prepare
+                        </button>
+                        <button
+                            class="flex-1 h-10 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                            Details
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Application Card 3 (Applied) -->
+            <div
+                class="group relative flex flex-col gap-4 rounded-xl bg-white dark:bg-gray-900 p-5 shadow-sm border border-gray-50 dark:border-gray-800 transition-all hover:shadow-lg hover:-translate-y-1">
+                <div class="flex items-start justify-between">
+                    <div class="flex gap-4">
+                        <div
+                            class="size-14 rounded-2xl bg-[#f0f2f4] dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                            <div class="w-full h-full bg-center bg-cover"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA2VdkJH7UiLYrn0kcJ5y2Hi5hi_kSSY6KxPguLIjvAaQfuQJSBF3IPVYTlDQUOjIvdJXN1tO5Qvmr-UiV79yPaZ7heMymHATDG2A097tYToBTCmJx8HhcbBA3yhI1GXRYuiqSoPJNe8G7wjZjV-EFwDR-CqZ1y9XUmxBPbrrQP19GGr5ZGtjGqQtoe1Rscen6P2i4uh4zMDOU2ktwCi0zQe7LE_5S4G4SYcytBqe0Wvfe32ErZ4C_UJT3aSvatpOvc9htCL3bjZHM')">
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-bold leading-tight">Design Systems Engineer</h3>
+                            <p class="text-[#617589] dark:text-gray-400 text-sm font-medium">Global Systems • London</p>
+                            <div class="mt-2 flex items-center gap-2">
+                                <span class="size-2 rounded-full bg-blue-500"></span>
+                                <span
+                                    class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide">Applied</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-100 dark:border-gray-800 pt-3 mt-1">
+                    <p class="text-xs text-gray-400 mb-3">Applied on Feb 05, 2026</p>
+                    <button
+                        class="w-full h-10 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        View Details
+                    </button>
+                </div>
+            </div>
+
+            <!-- Application Card 4 (Rejected) -->
+            <div
+                class="group relative flex flex-col gap-4 rounded-xl bg-white dark:bg-gray-900 p-5 shadow-sm border border-gray-50 dark:border-gray-800 transition-all hover:shadow-lg hover:-translate-y-1 opacity-75 grayscale hover:grayscale-0 transition-all">
+                <div class="flex items-start justify-between">
+                    <div class="flex gap-4">
+                        <div
+                            class="size-14 rounded-2xl bg-[#f0f2f4] dark:bg-gray-800 flex items-center justify-center overflow-hidden">
+                            <div class="w-full h-full bg-center bg-cover"
+                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCfi9sSXBCmR4ZNxQ9OSbMKWUSBQqYQDGa1_laubWNV361IW__5qNLRKAZmIG6dXLZwjDJW4nnEClferrsqt8qfi86CU5FPCxqc9t5vEeEEVhiYlB10Fgj9ZV9IBFJhkpFxbFqyMh-0SA4IE8FEhm4zk-aGjSYyAC7Tm-bxDTSykVk1rf-zciWc9_jpqRxaMSsVeO6BZQfgqRMRbfApr2uSCufo_L9QzExHnGg-KgcmgTnu_fBM03RslQWsphI9W_uyhOifx7S4QAs')">
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <h3 class="text-lg font-bold leading-tight">Frontend Developer</h3>
+                            <p class="text-[#617589] dark:text-gray-400 text-sm font-medium">StartUp Inc • Remote</p>
+                            <div class="mt-2 flex items-center gap-2">
+                                <span class="size-2 rounded-full bg-red-500"></span>
+                                <span
+                                    class="text-xs font-bold text-red-600 dark:text-red-400 uppercase tracking-wide">Rejected</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="border-t border-gray-100 dark:border-gray-800 pt-3 mt-1">
+                    <p class="text-xs text-gray-400 mb-3">Applied on Jan 20, 2026</p>
+                    <button
+                        class="w-full h-10 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                        View Feedback
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Mobile Bottom Navigation Bar (Hidden on Desktop) -->
+    <nav
+        class="md:hidden fixed bottom-0 left-0 right-0 z-40 w-full glass border-t border-gray-200 dark:border-gray-800 pb-8 pt-3 px-8">
+        <div class="flex items-center justify-between max-w-md mx-auto">
+            <a routerLink="/home"
+                class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors">
+                <span class="material-symbols-outlined">home</span>
+                <span class="text-[10px] font-bold">Home</span>
+            </a>
+            <a routerLink="/favorites"
+                class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors">
+                <span class="material-symbols-outlined">favorite</span>
+                <span class="text-[10px] font-bold">Favorites</span>
+            </a>
+            <a routerLink="/applications" class="flex flex-col items-center gap-1 text-primary">
+                <span class="material-symbols-outlined filled-icon">work</span>
+                <span class="text-[10px] font-bold">Applied</span>
+            </a>
+            <a routerLink="/profile"
+                class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors">
+                <span class="material-symbols-outlined">person_outline</span>
+                <span class="text-[10px] font-bold">Profile</span>
+            </a>
+        </div>
+    </nav>
+</div>
