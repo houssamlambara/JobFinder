@@ -15,23 +15,50 @@
 
                 <!-- Desktop Navigation -->
                 <div class="hidden md:flex items-center gap-8">
-                    <a href="#" class="text-sm font-bold text-primary">Find Jobs</a>
-                    <a href="#"
-                        class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-[#111418] dark:hover:text-white transition-colors">Companies</a>
-                    <a href="#"
-                        class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-[#111418] dark:hover:text-white transition-colors">Salaries</a>
+                    <a href="/home" class="text-sm font-bold text-primary">Find Jobs</a>
+                    <!-- Liens si connecté -->
+                    <ng-container *ngIf="isAuthenticated">
+                        <a href="/favorites"
+                            class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-[#111418] dark:hover:text-white transition-colors">
+                            Favorites
+                        </a>
+                        <a href="/applications"
+                            class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-[#111418] dark:hover:text-white transition-colors">
+                            Applications
+                        </a>
+                        <a href="/profile"
+                            class="text-sm font-medium text-gray-500 dark:text-gray-400 hover:text-[#111418] dark:hover:text-white transition-colors">
+                            Profile
+                        </a>
+                    </ng-container>
                 </div>
 
                 <!-- Auth Buttons -->
                 <div class="flex items-center gap-3">
-                    <a href="/auth/login"
-                        class="hidden md:block text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
-                        Sign In
-                    </a>
-                    <a href="/auth/register"
-                        class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 py-2.5 rounded-full transition-colors shadow-lg shadow-primary/25">
-                        Post a Job
-                    </a>
+                    <!-- Si NON connecté -->
+                    <ng-container *ngIf="!isAuthenticated">
+                        <a href="/auth/login"
+                            class="hidden md:block text-sm font-bold text-gray-600 dark:text-gray-300 hover:text-primary transition-colors">
+                            Sign In
+                        </a>
+                        <a href="/auth/register"
+                            class="bg-primary hover:bg-primary/90 text-white text-sm font-bold px-5 py-2.5 rounded-full transition-colors shadow-lg shadow-primary/25">
+                            Sign Up
+                        </a>
+                    </ng-container>
+
+                    <!-- Si connecté -->
+                    <ng-container *ngIf="isAuthenticated">
+                        <div class="hidden md:flex items-center gap-2 px-3 py-1.5 bg-gray-100 dark:bg-gray-800 rounded-full">
+                            <span class="material-symbols-outlined text-gray-600 dark:text-gray-400 text-lg">person</span>
+                            <span class="text-sm font-medium text-gray-700 dark:text-gray-300">{{ currentUserName }}</span>
+                        </div>
+                        <button (click)="logout()"
+                            class="bg-red-600 hover:bg-red-700 text-white text-sm font-bold px-4 py-2.5 rounded-full transition-colors shadow-lg shadow-red-600/25 flex items-center gap-1">
+                            <span class="material-symbols-outlined text-sm">logout</span>
+                            <span class="hidden md:inline">Logout</span>
+                        </button>
+                    </ng-container>
                 </div>
             </div>
         </div>
