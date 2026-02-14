@@ -28,23 +28,20 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Initialiser le formulaire avec validateur personnalisé
+
     this.registerForm = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       confirmPassword: ['', [Validators.required]]
     }, {
-      validators: this.passwordMatchValidator // Validateur au niveau du formulaire
+      validators: this.passwordMatchValidator
     });
 
-    // Si déjà connecté, rediriger (commenté pour permettre l'accès pendant les tests)
-    // if (this.authService.currentUser()) {
-    //   this.router.navigate(['/home']);
-    // }
+
   }
 
-  // Validateur personnalisé pour vérifier que les mots de passe correspondent
+
   passwordMatchValidator(control: AbstractControl): ValidationErrors | null {
     const password = control.get('password');
     const confirmPassword = control.get('confirmPassword');
@@ -56,7 +53,7 @@ export class RegisterComponent implements OnInit {
     return password.value === confirmPassword.value ? null : { passwordMismatch: true };
   }
 
-  // Getters pour faciliter l'accès aux contrôles
+
   get name() {
     return this.registerForm.get('name');
   }
@@ -93,9 +90,9 @@ export class RegisterComponent implements OnInit {
       next: (user) => {
         this.loading = false;
         this.successMessage = 'Inscription réussie ! Redirection...';
-        console.log('Inscription réussie:', user);
 
-        // Rediriger après 1 seconde
+
+
         setTimeout(() => {
           this.router.navigate(['/home']);
         }, 1000);
@@ -107,7 +104,7 @@ export class RegisterComponent implements OnInit {
         } else {
           this.errorMessage = 'Une erreur est survenue. Veuillez réessayer.';
         }
-        console.error('Erreur register:', err);
+
       }
     });
   }
