@@ -3,14 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap, map, of, catchError } from 'rxjs';
 import { User } from '../models/user.model';
+import { environment } from '../../../env/environment';
 
 @Injectable({
     providedIn: 'root'
 })
 export class AuthService {
-    private apiUrl = 'http://localhost:3000/users';
+    private apiUrl = `${environment.jsonServerUrl}/users`;
 
-    // Signal to hold current user state
     currentUser = signal<User | null>(this.getUserFromStorage());
 
     constructor(private http: HttpClient, private router: Router) { }
@@ -23,7 +23,6 @@ export class AuthService {
         );
     }
 
-    // Basic "fake" login by checking if user exists with matching creds
     login(email: string, password: string): Observable<User | null> {
         return this.http.get<User[]>(`${this.apiUrl}?email=${email}&password=${password}`).pipe(
             map(users => {
@@ -32,9 +31,28 @@ export class AuthService {
                     this.storeUser(user);
                     return user;
                 }
-                return null; // Invalid credentials
+                return null;
             }),
             catchError(() => of(null))
+        );
+    }
+
+    updateProfile(id: string | number, data: Partial<User>): Observable<User> {
+        return this.http.patch<User>(`${this.apiUrl}/${id}`, data).pipe(
+            tap(updatedUser => {
+                const current = this.currentUser();
+                if (current) {
+                    this.storeUser({ ...current, ...updatedUser });
+                }
+            })
+        );
+    }
+
+    deleteAccount(id: string | number): Observable<void> {
+        return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
+            tap(() => {
+                this.logout();
+            })
         );
     }
 
@@ -45,13 +63,11 @@ export class AuthService {
     }
 
     private storeUser(user: User) {
-        // Remove password before storing
-        const { password, ...safeUser } = user;
-        localStorage.setItem('user', JSON.stringify(safeUser));
-        this.currentUser.set(safeUser as User);
+        localStorage.setItem('user', JSON.stringify(user));
+        this.currentUser.set(user);
     }
 
-    private getUserFromStorage(): User | null {
+    getUserFromStorage(): User | null {
         const userStr = localStorage.getItem('user');
         return userStr ? JSON.parse(userStr) : null;
     }
