@@ -1,15 +1,15 @@
-export type ApplicationStatus = 'pending' | 'accepted' | 'rejected';
+export type ApplicationStatus = 'pending' | 'interview' | 'offer' | 'rejected';
 
 export interface Application {
-  id: number;
-  userId: number;
+  id?: string | number;
+  userId: string | number;
   offerId: string | number;
-  apiSource: string; // To know which API to query if needed
+  apiSource?: string;
   title: string;
   company: string;
   location: string;
-  url: string;
+  url?: string;
   status: ApplicationStatus;
-  notes: string;
-  dateAdded: string; // ISO date string
+  dateAdded: string;
+  notes?: string;
 }
