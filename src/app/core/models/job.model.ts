@@ -3,7 +3,7 @@ export interface Job {
   title: string;
   company: {
     display_name: string;
-  } | string; // API dependent, adapting to common structures
+  } | string;
   location: {
     display_name: string;
   } | string;
@@ -12,5 +12,5 @@ export interface Job {
   date_posted: string;
   salary_min?: number;
   salary_max?: number;
-  contract_type?: string; // e.g., 'full_time', 'part_time'
+  contract_type?: string;
 }
