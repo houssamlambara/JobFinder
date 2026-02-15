@@ -1,261 +1,142 @@
-<div
-    class="relative min-h-screen w-full bg-background-light dark:bg-background-dark font-display text-[#111418] dark:text-white antialiased">
+<div class="min-h-screen bg-gray-50 dark:bg-[#101922] font-display text-[#111418] dark:text-white pb-12">
 
-    <!-- Desktop Navbar (Hidden on Mobile) -->
+
+    <!-- Navbar -->
     <nav
-        class="hidden md:flex sticky top-0 z-50 bg-white/80 dark:bg-[#101922]/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
-        <div class="w-full max-w-7xl mx-auto px-4 md:px-8 h-20 flex items-center justify-between">
-            <!-- Logo -->
-            <div class="flex items-center gap-3">
-                <div class="size-10 rounded-xl bg-primary flex items-center justify-center shadow-lg shadow-primary/20">
-                    <span class="material-symbols-outlined text-white text-2xl">work</span>
-                </div>
-                <h1 class="text-xl font-bold tracking-tight">JobFinder</h1>
-            </div>
-
-            <!-- Desktop Navigation Links -->
-            <div class="hidden md:flex items-center gap-8">
-                <a routerLink="/home" class="text-gray-500 hover:text-primary font-medium transition-colors">Find
-                    Jobs</a>
-                <a class="text-gray-500 hover:text-primary font-medium transition-colors cursor-pointer">Companies</a>
-                <a class="text-gray-500 hover:text-primary font-medium transition-colors cursor-pointer">Salaries</a>
-            </div>
-
-            <!-- Action Buttons -->
-            <div class="flex items-center gap-4">
-                <button
-                    class="px-5 h-10 rounded-full border border-gray-200 dark:border-gray-700 font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                    Post a Job
-                </button>
-                <a routerLink="/auth/login"
-                    class="px-6 h-10 flex items-center justify-center rounded-full bg-primary text-white font-bold text-sm shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all hover:scale-105 active:scale-95">
-                    Sign In
+        class="sticky top-0 z-50 bg-white/80 dark:bg-[#101922]/90 backdrop-blur-md border-b border-gray-200 dark:border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 md:px-8 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <a routerLink="/home" class="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <span class="material-symbols-outlined">arrow_back</span>
                 </a>
+                <h1 class="text-xl font-bold">Mes Candidatures</h1>
             </div>
+
+            <a routerLink="/home" class="text-sm font-bold text-primary hover:underline">
+                Trouver d'autres offres
+            </a>
         </div>
     </nav>
 
-    <!-- Mobile Top App Bar (Hidden on Desktop) -->
-    <header
-        class="md:hidden sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-gray-100 dark:border-gray-800">
-        <div class="flex items-center justify-between p-4">
-            <button class="flex size-10 items-center justify-center rounded-full bg-gray-50 dark:bg-gray-800">
-                <span class="material-symbols-outlined text-[#111418] dark:text-white">arrow_back_ios_new</span>
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+
+        <!-- Filters -->
+        <div class="flex flex-wrap gap-2 mb-8 overflow-x-auto pb-2 no-scrollbar">
+            <button (click)="filterApplications('all')" [class.bg-primary]="currentFilter() === 'all'"
+                [class.text-white]="currentFilter() === 'all'" [class.bg-white]="currentFilter() !== 'all'"
+                [class.text-gray-700]="currentFilter() !== 'all'"
+                class="px-5 py-2.5 rounded-full font-bold text-sm shadow-sm transition-all whitespace-nowrap border border-transparent"
+                [class.border-gray-200]="currentFilter() !== 'all'">
+                Tout voir
             </button>
-            <h1 class="text-lg font-bold tracking-tight">Applications</h1>
-            <button class="flex size-10 items-center justify-center rounded-full bg-gray-50 dark:bg-gray-800">
-                <span class="material-symbols-outlined text-[#111418] dark:text-white">more_horiz</span>
+            <button (click)="filterApplications('pending')" [class.bg-yellow-500]="currentFilter() === 'pending'"
+                [class.text-white]="currentFilter() === 'pending'" [class.bg-white]="currentFilter() !== 'pending'"
+                [class.text-gray-700]="currentFilter() !== 'pending'"
+                class="px-5 py-2.5 rounded-full font-bold text-sm shadow-sm transition-all whitespace-nowrap border border-gray-200 dark:border-gray-700 hover:border-yellow-400">
+                En attente
+            </button>
+            <button (click)="filterApplications('interview')" [class.bg-blue-500]="currentFilter() === 'interview'"
+                [class.text-white]="currentFilter() === 'interview'" [class.bg-white]="currentFilter() !== 'interview'"
+                [class.text-gray-700]="currentFilter() !== 'interview'"
+                class="px-5 py-2.5 rounded-full font-bold text-sm shadow-sm transition-all whitespace-nowrap border border-gray-200 dark:border-gray-700 hover:border-blue-400">
+                Entretien
+            </button>
+            <button (click)="filterApplications('offer')" [class.bg-green-600]="currentFilter() === 'offer'"
+                [class.text-white]="currentFilter() === 'offer'" [class.bg-white]="currentFilter() !== 'offer'"
+                [class.text-gray-700]="currentFilter() !== 'offer'"
+                class="px-5 py-2.5 rounded-full font-bold text-sm shadow-sm transition-all whitespace-nowrap border border-gray-200 dark:border-gray-700 hover:border-green-400">
+                Offre reçue
+            </button>
+            <button (click)="filterApplications('rejected')" [class.bg-red-500]="currentFilter() === 'rejected'"
+                [class.text-white]="currentFilter() === 'rejected'" [class.bg-white]="currentFilter() !== 'rejected'"
+                [class.text-gray-700]="currentFilter() !== 'rejected'"
+                class="px-5 py-2.5 rounded-full font-bold text-sm shadow-sm transition-all whitespace-nowrap border border-gray-200 dark:border-gray-700 hover:border-red-400">
+                Refusé
             </button>
         </div>
-        <!-- Status Filter Chips (Mobile) -->
-        <div class="flex gap-2 p-4 overflow-x-auto no-scrollbar">
-            <div
-                class="flex h-9 shrink-0 items-center justify-center rounded-full bg-primary px-5 text-white shadow-sm">
-                <p class="text-sm font-semibold">All</p>
-            </div>
-            <div
-                class="flex h-9 shrink-0 items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 px-5 text-[#111418] dark:text-white">
-                <p class="text-sm font-medium">Pending</p>
-            </div>
-            <div
-                class="flex h-9 shrink-0 items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 px-5 text-[#111418] dark:text-white">
-                <p class="text-sm font-medium">Interview</p>
-            </div>
-            <div
-                class="flex h-9 shrink-0 items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-100 dark:border-gray-700 px-5 text-[#111418] dark:text-white">
-                <p class="text-sm font-medium">Rejected</p>
-            </div>
-        </div>
-    </header>
 
-    <!-- Main Content Area -->
-    <main class="flex-1 w-full max-w-7xl mx-auto pb-24 md:py-12 px-0 md:px-8">
-
-        <!-- Desktop Page Header -->
-        <div class="hidden md:flex items-center justify-between mb-8">
-            <div>
-                <h2 class="text-3xl font-bold mb-2">My Applications</h2>
-                <p class="text-gray-500">Track the status of your job applications.</p>
-            </div>
-            <!-- Desktop Filters -->
-            <div class="flex gap-2">
-                <div
-                    class="flex h-10 cursor-pointer shrink-0 items-center justify-center rounded-full bg-primary px-6 text-white shadow-sm transition-transform hover:scale-105">
-                    <p class="text-sm font-bold">All</p>
-                </div>
-                <div
-                    class="flex h-10 cursor-pointer shrink-0 items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-6 text-[#111418] dark:text-white hover:border-primary transition-all">
-                    <p class="text-sm font-semibold">Pending</p>
-                </div>
-                <div
-                    class="flex h-10 cursor-pointer shrink-0 items-center justify-center rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 px-6 text-[#111418] dark:text-white hover:border-primary transition-all">
-                    <p class="text-sm font-semibold">Interview</p>
-                </div>
-            </div>
+        <!-- Empty State -->
+        <div *ngIf="filteredApplications().length === 0"
+            class="text-center py-20 bg-white dark:bg-gray-900 rounded-3xl border border-dashed border-gray-300 dark:border-gray-700">
+            <span class="material-symbols-outlined text-6xl text-gray-300 mb-4">post_add</span>
+            <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Aucune candidature trouvée</h3>
+            <p class="text-gray-500 dark:text-gray-400 max-w-sm mx-auto mb-6">
+                Vous n'avez pas encore de candidatures dans cette catégorie. Commencez à postuler dès maintenant !
+            </p>
+            <a routerLink="/home"
+                class="px-6 py-3 bg-primary text-white font-bold rounded-xl shadow-lg shadow-primary/20 hover:bg-primary/90 transition-all">
+                Parcourir les offres
+            </a>
         </div>
 
-        <!-- Applications List Container -->
-        <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 p-4 md:p-0">
+        <!-- Application Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div *ngFor="let app of filteredApplications()"
+                class="group bg-white dark:bg-gray-900 rounded-2xl p-6 shadow-sm border border-gray-100 dark:border-gray-800 hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col relative overflow-hidden">
 
-            <!-- Application Card 1 (In Review) -->
-            <div
-                class="group relative flex flex-col gap-4 rounded-xl bg-white dark:bg-gray-900 p-5 shadow-sm border border-gray-50 dark:border-gray-800 transition-all hover:shadow-lg hover:-translate-y-1">
-                <div class="flex items-start justify-between">
-                    <div class="flex gap-4">
-                        <div
-                            class="size-14 rounded-2xl bg-[#f0f2f4] dark:bg-gray-800 flex items-center justify-center overflow-hidden">
-                            <div class="w-full h-full bg-center bg-cover"
-                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCfi9sSXBCmR4ZNxQ9OSbMKWUSBQqYQDGa1_laubWNV361IW__5qNLRKAZmIG6dXLZwjDJW4nnEClferrsqt8qfi86CU5FPCxqc9t5vEeEEVhiYlB10Fgj9ZV9IBFJhkpFxbFqyMh-0SA4IE8FEhm4zk-aGjSYyAC7Tm-bxDTSykVk1rf-zciWc9_jpqRxaMSsVeO6BZQfgqRMRbfApr2uSCufo_L9QzExHnGg-KgcmgTnu_fBM03RslQWsphI9W_uyhOifx7S4QAs')">
-                            </div>
-                        </div>
-                        <div class="flex flex-col">
-                            <h3 class="text-lg font-bold leading-tight">Senior Product Designer</h3>
-                            <p class="text-[#617589] dark:text-gray-400 text-sm font-medium">TechFlow • New York</p>
-                            <div class="mt-2 flex items-center gap-2">
-                                <span class="size-2 rounded-full bg-yellow-500 animate-pulse"></span>
-                                <span
-                                    class="text-xs font-bold text-yellow-600 dark:text-yellow-400 uppercase tracking-wide">In
-                                    Review</span>
-                            </div>
-                        </div>
-                    </div>
+                <!-- Status Stripe -->
+                <div class="absolute top-0 left-0 w-1 h-full" [ngClass]="{
+                        'bg-yellow-400': app.status === 'pending',
+                        'bg-blue-500': app.status === 'interview',
+                        'bg-green-500': app.status === 'offer',
+                        'bg-red-500': app.status === 'rejected'
+                    }">
                 </div>
 
-                <div class="border-t border-gray-100 dark:border-gray-800 pt-3 mt-1">
-                    <p class="text-xs text-gray-400 mb-3">Applied on Feb 10, 2026</p>
-                    <button
-                        class="w-full h-10 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        View Details
-                    </button>
-                </div>
-            </div>
-
-            <!-- Application Card 2 (Interview) -->
-            <div
-                class="group relative flex flex-col gap-4 rounded-xl bg-white dark:bg-gray-900 p-5 shadow-sm border border-gray-50 dark:border-gray-800 transition-all hover:shadow-lg hover:-translate-y-1">
-                <div class="flex items-start justify-between">
-                    <div class="flex gap-4">
-                        <div
-                            class="size-14 rounded-2xl bg-[#f0f2f4] dark:bg-gray-800 flex items-center justify-center overflow-hidden">
-                            <div class="w-full h-full bg-center bg-cover"
-                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBzrD5foJoTDlkYBE5xla8rKKINUS0vDrA9UfxwGNc_AEDaNrMCmDdO3LA0GXts1QSPRGZodFwc4F4lZrIgiYGx-BrsUdndsdfS-hsvu8GIE1RPxC3-bs6w6hGKJE9XfUp5YPSHflcLib_VlLXstkTBqTi4A7Lxo4_nLE0G37wq4sLvsyXEZBS6P13mBZr_1v--bPqy44FcVRVw5QOeBKYWqJq2uob4DwxkNq1CrVth8JSO7FaYqc8oI78k47Tcs_A2eReNJlULX_Y')">
-                            </div>
+                <div class="pl-4">
+                    <div class="flex justify-between items-start mb-4">
+                        <div>
+                            <h3 [title]="app.title"
+                                class="font-bold text-lg text-[#111418] dark:text-white line-clamp-1 group-hover:text-primary transition-colors">
+                                {{ app.title }}
+                            </h3>
+                            <p class="text-sm font-medium text-gray-500 dark:text-gray-400">{{ app.company }}</p>
                         </div>
-                        <div class="flex flex-col">
-                            <h3 class="text-lg font-bold leading-tight">Lead UX Researcher</h3>
-                            <p class="text-[#617589] dark:text-gray-400 text-sm font-medium">Creative Solutions • Remote
-                            </p>
-                            <div class="mt-2 flex items-center gap-2">
-                                <span class="size-2 rounded-full bg-green-500"></span>
-                                <span
-                                    class="text-xs font-bold text-green-600 dark:text-green-400 uppercase tracking-wide">Interview</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="border-t border-gray-100 dark:border-gray-800 pt-3 mt-1">
-                    <p class="text-xs text-gray-400 mb-3">Applied on Feb 08, 2026</p>
-                    <div class="flex gap-2">
-                        <button
-                            class="flex-1 h-10 rounded-lg bg-primary text-white font-bold text-sm shadow-sm hover:bg-primary/90 transition-colors">
-                            Prepare
-                        </button>
-                        <button
-                            class="flex-1 h-10 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                            Details
+                        <button (click)="deleteApplication(app.id)"
+                            class="text-gray-300 hover:text-red-500 transition-colors">
+                            <span class="material-symbols-outlined">delete</span>
                         </button>
                     </div>
-                </div>
-            </div>
 
-            <!-- Application Card 3 (Applied) -->
-            <div
-                class="group relative flex flex-col gap-4 rounded-xl bg-white dark:bg-gray-900 p-5 shadow-sm border border-gray-50 dark:border-gray-800 transition-all hover:shadow-lg hover:-translate-y-1">
-                <div class="flex items-start justify-between">
-                    <div class="flex gap-4">
-                        <div
-                            class="size-14 rounded-2xl bg-[#f0f2f4] dark:bg-gray-800 flex items-center justify-center overflow-hidden">
-                            <div class="w-full h-full bg-center bg-cover"
-                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA2VdkJH7UiLYrn0kcJ5y2Hi5hi_kSSY6KxPguLIjvAaQfuQJSBF3IPVYTlDQUOjIvdJXN1tO5Qvmr-UiV79yPaZ7heMymHATDG2A097tYToBTCmJx8HhcbBA3yhI1GXRYuiqSoPJNe8G7wjZjV-EFwDR-CqZ1y9XUmxBPbrrQP19GGr5ZGtjGqQtoe1Rscen6P2i4uh4zMDOU2ktwCi0zQe7LE_5S4G4SYcytBqe0Wvfe32ErZ4C_UJT3aSvatpOvc9htCL3bjZHM')">
-                            </div>
+                    <div class="flex items-center gap-2 mb-6">
+                        <span class="px-3 py-1 rounded-full text-xs font-bold border"
+                            [ngClass]="getStatusClass(app.status)">
+                            {{ getStatusLabel(app.status) }}
+                        </span>
+                        <span class="text-xs text-gray-400 font-medium ml-auto">
+                            {{ app.dateAdded | date:'dd MMM yyyy' }}
+                        </span>
+                    </div>
+
+                    <!-- Actions / Status Change -->
+                    <div class="mt-auto space-y-3">
+                        <p class="text-xs font-bold text-gray-400 uppercase tracking-wider">Changer le statut</p>
+                        <div class="grid grid-cols-4 gap-2">
+                            <button (click)="updateStatus(app, 'pending')" title="En attente"
+                                class="h-8 rounded-lg bg-yellow-50 text-yellow-600 hover:bg-yellow-100 border border-yellow-200 flex items-center justify-center transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">hourglass_empty</span>
+                            </button>
+                            <button (click)="updateStatus(app, 'interview')" title="Entretien"
+                                class="h-8 rounded-lg bg-blue-50 text-blue-600 hover:bg-blue-100 border border-blue-200 flex items-center justify-center transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">groups</span>
+                            </button>
+                            <button (click)="updateStatus(app, 'offer')" title="Offre Reçue"
+                                class="h-8 rounded-lg bg-green-50 text-green-600 hover:bg-green-100 border border-green-200 flex items-center justify-center transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">check_circle</span>
+                            </button>
+                            <button (click)="updateStatus(app, 'rejected')" title="Refusé"
+                                class="h-8 rounded-lg bg-red-50 text-red-600 hover:bg-red-100 border border-red-200 flex items-center justify-center transition-colors">
+                                <span class="material-symbols-outlined text-[18px]">cancel</span>
+                            </button>
                         </div>
-                        <div class="flex flex-col">
-                            <h3 class="text-lg font-bold leading-tight">Design Systems Engineer</h3>
-                            <p class="text-[#617589] dark:text-gray-400 text-sm font-medium">Global Systems • London</p>
-                            <div class="mt-2 flex items-center gap-2">
-                                <span class="size-2 rounded-full bg-blue-500"></span>
-                                <span
-                                    class="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide">Applied</span>
-                            </div>
-                        </div>
+
+                        <a *ngIf="app.url" [href]="app.url" target="_blank"
+                            class="block w-full text-center py-2 text-sm font-bold text-primary hover:bg-primary/5 rounded-lg transition-colors mt-2">
+                            Voir l'offre originale
+                        </a>
                     </div>
                 </div>
-                <div class="border-t border-gray-100 dark:border-gray-800 pt-3 mt-1">
-                    <p class="text-xs text-gray-400 mb-3">Applied on Feb 05, 2026</p>
-                    <button
-                        class="w-full h-10 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        View Details
-                    </button>
-                </div>
             </div>
-
-            <!-- Application Card 4 (Rejected) -->
-            <div
-                class="group relative flex flex-col gap-4 rounded-xl bg-white dark:bg-gray-900 p-5 shadow-sm border border-gray-50 dark:border-gray-800 transition-all hover:shadow-lg hover:-translate-y-1 opacity-75 grayscale hover:grayscale-0 transition-all">
-                <div class="flex items-start justify-between">
-                    <div class="flex gap-4">
-                        <div
-                            class="size-14 rounded-2xl bg-[#f0f2f4] dark:bg-gray-800 flex items-center justify-center overflow-hidden">
-                            <div class="w-full h-full bg-center bg-cover"
-                                style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCfi9sSXBCmR4ZNxQ9OSbMKWUSBQqYQDGa1_laubWNV361IW__5qNLRKAZmIG6dXLZwjDJW4nnEClferrsqt8qfi86CU5FPCxqc9t5vEeEEVhiYlB10Fgj9ZV9IBFJhkpFxbFqyMh-0SA4IE8FEhm4zk-aGjSYyAC7Tm-bxDTSykVk1rf-zciWc9_jpqRxaMSsVeO6BZQfgqRMRbfApr2uSCufo_L9QzExHnGg-KgcmgTnu_fBM03RslQWsphI9W_uyhOifx7S4QAs')">
-                            </div>
-                        </div>
-                        <div class="flex flex-col">
-                            <h3 class="text-lg font-bold leading-tight">Frontend Developer</h3>
-                            <p class="text-[#617589] dark:text-gray-400 text-sm font-medium">StartUp Inc • Remote</p>
-                            <div class="mt-2 flex items-center gap-2">
-                                <span class="size-2 rounded-full bg-red-500"></span>
-                                <span
-                                    class="text-xs font-bold text-red-600 dark:text-red-400 uppercase tracking-wide">Rejected</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="border-t border-gray-100 dark:border-gray-800 pt-3 mt-1">
-                    <p class="text-xs text-gray-400 mb-3">Applied on Jan 20, 2026</p>
-                    <button
-                        class="w-full h-10 rounded-lg border border-gray-200 dark:border-gray-700 text-gray-600 dark:text-gray-300 font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
-                        View Feedback
-                    </button>
-                </div>
-            </div>
-
         </div>
     </main>
-
-    <!-- Mobile Bottom Navigation Bar (Hidden on Desktop) -->
-    <nav
-        class="md:hidden fixed bottom-0 left-0 right-0 z-40 w-full glass border-t border-gray-200 dark:border-gray-800 pb-8 pt-3 px-8">
-        <div class="flex items-center justify-between max-w-md mx-auto">
-            <a routerLink="/home"
-                class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors">
-                <span class="material-symbols-outlined">home</span>
-                <span class="text-[10px] font-bold">Home</span>
-            </a>
-            <a routerLink="/favorites"
-                class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors">
-                <span class="material-symbols-outlined">favorite</span>
-                <span class="text-[10px] font-bold">Favorites</span>
-            </a>
-            <a routerLink="/applications" class="flex flex-col items-center gap-1 text-primary">
-                <span class="material-symbols-outlined filled-icon">work</span>
-                <span class="text-[10px] font-bold">Applied</span>
-            </a>
-            <a routerLink="/profile"
-                class="flex flex-col items-center gap-1 text-gray-400 hover:text-primary transition-colors">
-                <span class="material-symbols-outlined">person_outline</span>
-                <span class="text-[10px] font-bold">Profile</span>
-            </a>
-        </div>
-    </nav>
 </div>
