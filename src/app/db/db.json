@@ -17,6 +17,18 @@
       "email": "ayoub@gmail.com",
       "password": "123",
       "id": 3
+    },
+    {
+      "name": "houssam",
+      "email": "houssamlam@live.fr",
+      "password": "123456",
+      "id": 4
+    },
+    {
+      "name": "hamid hamodi ",
+      "email": "hamid@gmail.com",
+      "password": "123456",
+      "id": 5
     }
   ],
   "Favorites": [
@@ -134,6 +146,144 @@
         "Voyages",
         "Prime"
       ]
+    }
+  ],
+  "favoritesOffers": [
+    {
+      "userId": 1,
+      "offerId": "21157352",
+      "title": "Assistant Site Manager",
+      "company": "DoorDash",
+      "location": "Wyoming, MI",
+      "dateSaved": "2026-02-14T15:22:14.835Z",
+      "jobUrl": "https://www.themuse.com/jobs/doordash/assistant-site-manager-206c82",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "offerId": "17780767",
+      "title": "Nurse Care Manager (RN)",
+      "company": "Hartford HealthCare",
+      "location": "Ledyard, CT",
+      "dateSaved": "2026-02-14T15:22:38.720Z",
+      "jobUrl": "https://www.themuse.com/jobs/hartfordhealthcare/nurse-care-manager-rn-ed8155",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "offerId": "21166594",
+      "title": "Senior Marketing Applied Scientist",
+      "company": "Uber",
+      "location": "San Francisco, CA",
+      "dateSaved": "2026-02-14T15:45:57.439Z",
+      "jobUrl": "https://www.themuse.com/jobs/uber/senior-marketing-applied-scientist",
+      "id": 3
+    }
+  ],
+  "applications": [
+    {
+      "userId": 1,
+      "offerId": "2",
+      "apiSource": "adzuna",
+      "title": "Développeur Full Stack JavaScript",
+      "company": "StartupXYZ",
+      "location": "Lyon, Auvergne-Rhône-Alpes",
+      "status": "rejected",
+      "dateAdded": "2026-02-14T14:47:29.137Z",
+      "notes": "",
+      "url": "https://www.adzuna.fr",
+      "id": 1
+    },
+    {
+      "userId": 1,
+      "offerId": "2",
+      "apiSource": "adzuna",
+      "title": "Développeur Full Stack JavaScript",
+      "company": "StartupXYZ",
+      "location": "Lyon, Auvergne-Rhône-Alpes",
+      "status": "rejected",
+      "dateAdded": "2026-02-14T14:47:40.077Z",
+      "notes": "",
+      "url": "https://www.adzuna.fr",
+      "id": 2
+    },
+    {
+      "userId": 1,
+      "offerId": "1",
+      "apiSource": "adzuna",
+      "title": "Développeur Angular Senior",
+      "company": "Tech Corp France",
+      "location": "Paris, Île-de-France",
+      "status": "rejected",
+      "dateAdded": "2026-02-14T14:47:44.540Z",
+      "notes": "",
+      "url": "https://www.adzuna.fr",
+      "id": 3
+    },
+    {
+      "userId": 1,
+      "offerId": "2",
+      "apiSource": "adzuna",
+      "title": "Développeur Full Stack JavaScript",
+      "company": "StartupXYZ",
+      "location": "Lyon, Auvergne-Rhône-Alpes",
+      "status": "rejected",
+      "dateAdded": "2026-02-14T14:48:31.947Z",
+      "notes": "",
+      "url": "https://www.adzuna.fr",
+      "id": 4
+    },
+    {
+      "userId": 1,
+      "offerId": "5",
+      "apiSource": "adzuna",
+      "title": "Développeur Backend Node.js",
+      "company": "CloudTech",
+      "location": "Nantes, Pays de la Loire",
+      "status": "interview",
+      "dateAdded": "2026-02-14T14:52:27.249Z",
+      "notes": "",
+      "url": "https://www.adzuna.fr",
+      "id": 5
+    },
+    {
+      "userId": 1,
+      "offerId": "2",
+      "apiSource": "adzuna",
+      "title": "Développeur Full Stack JavaScript",
+      "company": "StartupXYZ",
+      "location": "Lyon, Auvergne-Rhône-Alpes",
+      "status": "rejected",
+      "dateAdded": "2026-02-14T14:55:28.128Z",
+      "notes": "",
+      "url": "https://www.adzuna.fr",
+      "id": 6
+    },
+    {
+      "userId": 1,
+      "offerId": "17780767",
+      "apiSource": "adzuna",
+      "title": "Nurse Care Manager (RN)",
+      "company": "Hartford HealthCare",
+      "location": "Ledyard, CT",
+      "status": "rejected",
+      "dateAdded": "2026-02-14T15:22:40.121Z",
+      "notes": "",
+      "url": "https://www.themuse.com/jobs/hartfordhealthcare/nurse-care-manager-rn-ed8155",
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "offerId": "21166594",
+      "apiSource": "adzuna",
+      "title": "Senior Marketing Applied Scientist",
+      "company": "Uber",
+      "location": "San Francisco, CA",
+      "status": "pending",
+      "dateAdded": "2026-02-14T15:45:57.871Z",
+      "notes": "",
+      "url": "https://www.themuse.com/jobs/uber/senior-marketing-applied-scientist",
+      "id": 8
     }
   ]
 }
