@@ -1,4 +1,5 @@
 import { Routes } from '@angular/router';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
     {
@@ -15,15 +16,18 @@ export const routes: Routes = [
     },
     {
         path: 'favorites',
-        loadComponent: () => import('./features/favorites/favorites').then(m => m.FavoritesComponent)
+        loadComponent: () => import('./features/favorites/favorites').then(m => m.FavoritesComponent),
+        canActivate: [authGuard]
     },
     {
         path: 'applications',
-        loadComponent: () => import('./features/applications/applications').then(m => m.ApplicationsComponent)
+        loadComponent: () => import('./features/applications/applications').then(m => m.ApplicationsComponent),
+        canActivate: [authGuard]
     },
     {
         path: 'profile',
-        loadComponent: () => import('./features/profile/profile').then(m => m.ProfileComponent)
+        loadComponent: () => import('./features/profile/profile').then(m => m.ProfileComponent),
+        canActivate: [authGuard]
     },
     {
         path: 'jobs/:id',
@@ -31,7 +35,11 @@ export const routes: Routes = [
     },
     {
         path: '',
-        redirectTo: 'auth/login',
+        redirectTo: 'home',
         pathMatch: 'full'
+    },
+    {
+        path: '**',
+        redirectTo: 'home'
     }
 ];
