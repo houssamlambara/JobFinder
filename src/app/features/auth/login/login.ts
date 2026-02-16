@@ -34,7 +34,6 @@ export class LoginComponent implements OnInit {
 
   }
 
-
   get email() {
     return this.loginForm.get('email');
   }

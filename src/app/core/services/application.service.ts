@@ -23,8 +23,6 @@ export class ApplicationService {
         return this.http.patch<Application>(`${this.apiUrl}/${id}`, { status });
     }
 
-
-
     deleteApplication(id: string | number): Observable<void> {
         return this.http.delete<void>(`${this.apiUrl}/${id}`);
     }

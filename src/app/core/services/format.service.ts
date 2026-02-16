@@ -1,17 +1,10 @@
 import { Injectable } from '@angular/core';
 
-/**
- * Service utilitaire pour le formatage des données
- * Sépare la logique métier du service API
- */
 @Injectable({
   providedIn: 'root'
 })
 export class FormatService {
 
-  /**
-   * Formate le salaire pour l'affichage
-   */
   formatSalary(salaryMin?: number, salaryMax?: number): string {
     if (!salaryMin && !salaryMax) {
       return 'Non spécifié';
@@ -34,9 +27,7 @@ export class FormatService {
     }
   }
 
-  /**
-   * Formate la date de publication de façon relative
-   */
+
   formatDate(dateString: string): string {
     const date = new Date(dateString);
     const now = new Date();
@@ -61,19 +52,12 @@ export class FormatService {
     }
   }
 
-  /**
-   * Tronque un texte à une longueur donnée
-   */
   truncateText(text: string, maxLength: number = 150): string {
     if (!text) return '';
     return text.length > maxLength ? text.substring(0, maxLength) + '...' : text;
   }
 
-  /**
-   * Extrait le nom de la ville depuis une localisation complète
-   */
   extractCity(location: string): string {
-    // "Paris, Île-de-France" -> "Paris"
     return location.split(',')[0].trim();
   }
 }
